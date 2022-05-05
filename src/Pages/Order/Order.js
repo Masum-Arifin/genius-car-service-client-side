@@ -11,7 +11,7 @@ const Order = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const getOrders = async () => {
-      const email = user.email;
+      const email = user?.email;
       const url = `https://fathomless-sierra-36634.herokuapp.com/order?email=${email}`;
       try {
         const { data } = await axios.get(url, {
@@ -29,7 +29,7 @@ const Order = () => {
       }
     };
     getOrders();
-  }, [user]);
+  }, []);
   return (
     <div>
       <h2>Your orders: {orders.length}</h2>
